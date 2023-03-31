@@ -4,7 +4,7 @@ const counterSlice = createSlice({
   name: 'counter',
   initialState: {
     count: 100,
-    message: 'Hello World'
+    message: 'Hello World!'
   },
   reducers: {
     changeMessageAction(state, { payload }) {
