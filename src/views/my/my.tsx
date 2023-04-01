@@ -6,7 +6,7 @@ interface IProps {
 }
 
 const My: FC<IProps> = () => {
-  return <div>my</div>
+  return <div>My</div>
 }
 
 export default memo(My)
