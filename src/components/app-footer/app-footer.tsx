@@ -2,6 +2,7 @@ import React, { memo } from 'react'
 import type { FC, ReactNode } from 'react'
 import footerTitles from '@/assets/data/footer_titles.json'
 import { FooterWrapper } from '@/components/app-footer/styles'
+import { footerLinks } from '@/assets/data/local_data'
 
 interface IProps {
   children?: ReactNode
@@ -29,38 +30,16 @@ const AppFooter: FC<IProps> = () => {
         </div>
         <div className="copy">
           <p>
-            <a href="//st.music.163.com/official-terms/service" rel="noreferrer" target="_blank" className="label">
-              服务条款
-            </a>
-            <span className="line">|</span>
-            <a href="//st.music.163.com/official-terms/privacy" rel="noreferrer" target="_blank" className="label">
-              隐私政策
-            </a>
-            <span className="line">|</span>
-            <a href="//st.music.163.com/official-terms/children" rel="noreferrer" target="_blank" className="label">
-              儿童隐私政策
-            </a>
-            <span className="line">|</span>
-            <a href="//music.163.com/st/staticdeal/complaints.html" rel="noreferrer" target="_blank" className="label">
-              版权投诉
-            </a>
-            <span className="line">|</span>
-            <a href="http://ir.music.163.com" target="_blank" rel="noreferrer" className="label">
-              投资者关系
-            </a>
-            <span className="line">|</span>
-            <a href="https://music.163.com/ui/resource" rel="noopener noreferrer" target="_blank" className="label">
-              广告合作
-            </a>
-            <span className="line">|</span>
-            <a
-              href="//mp.music.163.com/600948c936c13f4d09752e73/contact-us-web/index.html?source=Music-Main-Station"
-              rel="noreferrer"
-              target="_blank"
-              className="label"
-            >
-              联系我们
-            </a>
+            {footerLinks.map((item, index) => {
+              return (
+                <>
+                  <a href={item.link} rel="noreferrer" target="_blank" className="label">
+                    {item.title}
+                  </a>
+                  {index <= footerLinks.length - 2 && <span className="line">|</span>}
+                </>
+              )
+            })}
           </p>
           <p>
             <a href="https://jubao.163.com" rel="noreferrer" target="_blank" className="label sep">
