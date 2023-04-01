@@ -1,0 +1,37 @@
+[
+  {
+    "titles": "音乐开放平台",
+    "href": "https://developer.music.163.com/st/developer",
+    "position": "-170px -5px "
+  },
+  {
+    "titles": "云村交易所",
+    "href": "//music.163.com/st/web-sublicense/home",
+    "position": "-5px -170px"
+  },
+  {
+    "titles": "Amped Studio",
+    "href": "https://web-amped.music.163.com/",
+    "position": "-5px -60px"
+  },
+  {
+    "titles": "用户认证",
+    "href": "//music.163.com/st/userbasic#/auth",
+    "position": "-60px -60px"
+  },
+  {
+    "titles": "音乐交易平台",
+    "href": "//music.163.com/st/ad-cms-bills/mlogin?from=mainStation",
+    "position": "-115px -115px"
+  },
+  {
+    "titles": "赞赏",
+    "href": "//music.163.com/web/reward",
+    "position": "-170px -115px"
+  },
+  {
+    "titles": "视频激励",
+    "href": "//music.163.com/st/ncreator/revenue-plan",
+    "position": "-170px -60px"
+  }
+]
