@@ -1,4 +1,4 @@
-import React, { memo } from 'react'
+import React, { Fragment, memo } from 'react'
 import type { FC, ReactNode } from 'react'
 import footerTitles from '@/assets/data/footer_titles.json'
 import { FooterWrapper } from '@/components/app-footer/styles'
@@ -32,12 +32,12 @@ const AppFooter: FC<IProps> = () => {
           <p>
             {footerLinks.map((item, index) => {
               return (
-                <>
+                <Fragment key={index}>
                   <a href={item.link} rel="noreferrer" target="_blank" className="label">
                     {item.title}
                   </a>
                   {index <= footerLinks.length - 2 && <span className="line">|</span>}
-                </>
+                </Fragment>
               )
             })}
           </p>

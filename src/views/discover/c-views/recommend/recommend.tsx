@@ -1,24 +1,23 @@
-import React, { memo, useEffect, useState } from 'react'
+import React, { memo, useEffect } from 'react'
 import type { FC, ReactNode } from 'react'
-import { request } from '@/utils/request'
-import type { Banner, Banners } from '@/types/recommend'
+import { useAppDispatch } from '@/store'
+import { fetchBannerDataAction } from '@/store/modules/recommend'
+import TopBanner from '@/views/discover/c-views/recommend/components/top-banner/top-banner'
 
 interface IProps {
   children?: ReactNode
 }
 
 const Recommend: FC<IProps> = () => {
-  const [banners, setBanners] = useState<Banner[]>([])
+  const dispatch = useAppDispatch()
+
   useEffect(() => {
-    request<Banners>('/banner').then((res) => {
-      setBanners(res.data.banners)
-    })
+    dispatch(fetchBannerDataAction())
   }, [])
+
   return (
     <div>
-      {banners.map((item) => {
-        return <div key={item.imageUrl}>{item.imageUrl}</div>
-      })}
+      <TopBanner />
     </div>
   )
 }
