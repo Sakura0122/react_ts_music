@@ -80,10 +80,11 @@ export const BannerControl = styled.div`
   left: 0;
   right: 0;
   top: 50%;
+  transform: translateY(-50%);
+  height: 63px;
 
   .btn {
     position: absolute;
-    transform: translateY(-50%);
     width: 37px;
     height: 63px;
     background-image: url(${require('@/assets/img/banner_sprite.png')});
