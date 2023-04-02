@@ -21,3 +21,10 @@ export function getHotRecommend(limit = 30) {
 export function getNewAlbums() {
   return request<newAlbums>('/album/newest')
 }
+
+/**
+ * 获取歌单详情
+ */
+export function getPlayListDetail(id: number) {
+  return request(`/playlist/detail?id=${id}`)
+}

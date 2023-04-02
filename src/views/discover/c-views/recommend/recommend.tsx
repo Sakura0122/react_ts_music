@@ -1,7 +1,7 @@
 import React, { memo, useEffect } from 'react'
 import type { FC, ReactNode } from 'react'
 import { useAppDispatch } from '@/store'
-import { fetchRecommendDataAction } from '@/store/modules/recommend'
+import { fetchRecommendDataAction, fetchTopListDataAction } from '@/store/modules/recommend'
 import TopBanner from '@/views/discover/c-views/recommend/components/top-banner/top-banner'
 import { RecommendWrapper } from '@/views/discover/c-views/recommend/style'
 import HotRecommend from '@/views/discover/c-views/recommend/components/hot-recommend/hot-recommend'
@@ -17,6 +17,7 @@ const Recommend: FC<IProps> = () => {
 
   useEffect(() => {
     dispatch(fetchRecommendDataAction())
+    dispatch(fetchTopListDataAction())
   }, [])
 
   return (

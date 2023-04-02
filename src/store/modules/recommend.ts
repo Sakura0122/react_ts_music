@@ -1,11 +1,15 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import type { Banner, HotRecommend, newAlbum } from '@/types/recommend'
-import { getBanners, getHotRecommend, getNewAlbums } from '@/service/recommend'
+import { getBanners, getHotRecommend, getNewAlbums, getPlayListDetail } from '@/service/recommend'
 
 interface IRecommendState {
   banners: Banner[]
   hotRecommends: HotRecommend[]
   newAlbums: newAlbum[]
+  rankings: any[]
+  // upRanking: any
+  // newRanking: any
+  // originRanking: any
 }
 
 const initialState: IRecommendState = {
@@ -14,7 +18,9 @@ const initialState: IRecommendState = {
   // 热门推荐
   hotRecommends: [],
   // 新碟上架
-  newAlbums: []
+  newAlbums: [],
+  // 榜单
+  rankings: []
 }
 
 const recommendSlice = createSlice({
@@ -29,6 +35,9 @@ const recommendSlice = createSlice({
     },
     changeNewAlbumsAction(state, { payload }) {
       state.newAlbums = payload
+    },
+    changeRankingsAction(state, { payload }) {
+      state.rankings = payload
     }
   }
 })
@@ -42,6 +51,18 @@ export const fetchRecommendDataAction = createAsyncThunk('fetchData', (_, { disp
   })
   getNewAlbums().then((res) => {
     dispatch(changeNewAlbumsAction(res.data.albums))
+  })
+})
+
+const rankingIds = [19723756, 3779629, 2884035]
+export const fetchTopListDataAction = createAsyncThunk('topListData', (_, { dispatch }) => {
+  const promises: Promise<any>[] = []
+  for (const id of rankingIds) {
+    promises.push(getPlayListDetail(id))
+  }
+  Promise.all(promises).then((res) => {
+    const playlists = res.map((item) => item.data.playlist)
+    dispatch(changeRankingsAction(playlists))
   })
 })
 
@@ -60,5 +81,6 @@ export const fetchRecommendDataAction = createAsyncThunk('fetchData', (_, { disp
 //   thunkAPI.dispatch(changeNewAlbumsAction(res.data.albums))
 // })
 
-export const { changeBannersAction, changeHotRecommendsAction, changeNewAlbumsAction } = recommendSlice.actions
+export const { changeBannersAction, changeHotRecommendsAction, changeNewAlbumsAction, changeRankingsAction } =
+  recommendSlice.actions
 export default recommendSlice.reducer
