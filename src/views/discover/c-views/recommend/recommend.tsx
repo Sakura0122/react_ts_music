@@ -7,6 +7,7 @@ import { RecommendWrapper } from '@/views/discover/c-views/recommend/style'
 import HotRecommend from '@/views/discover/c-views/recommend/components/hot-recommend/hot-recommend'
 import NewAlbum from '@/views/discover/c-views/recommend/components/new-album/new-album'
 import TopList from '@/views/discover/c-views/recommend/components/top-list/top-list'
+import UserLogin from '@/views/discover/c-views/recommend/components/user-login/user-login'
 
 interface IProps {
   children?: ReactNode
@@ -29,7 +30,9 @@ const Recommend: FC<IProps> = () => {
           <NewAlbum />
           <TopList />
         </div>
-        <div className="right">right</div>
+        <div className="right">
+          <UserLogin />
+        </div>
       </div>
     </RecommendWrapper>
   )
