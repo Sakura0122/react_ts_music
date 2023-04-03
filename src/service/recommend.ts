@@ -1,5 +1,5 @@
 import { request } from '@/utils/request'
-import { Banners, HotRecommends, newAlbums } from '@/types/recommend'
+import { artists, Banners, HotRecommends, newAlbums } from '@/types/recommend'
 
 /**
  * 获取轮播图
@@ -27,4 +27,11 @@ export function getNewAlbums() {
  */
 export function getPlayListDetail(id: number) {
   return request(`/playlist/detail?id=${id}`)
+}
+
+/**
+ * 入驻歌手
+ */
+export function getArtistList(limit = 30) {
+  return request<artists>(`/artist/list?limit=${limit}`)
 }
