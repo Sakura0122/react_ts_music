@@ -35,3 +35,10 @@ export function getPlayListDetail(id: number) {
 export function getArtistList(limit = 30) {
   return request<artists>(`/artist/list?limit=${limit}`)
 }
+
+/**
+ * 搜索音乐
+ */
+export function getSearchList(keywords: any) {
+  return request<any>(`/search?keywords=${keywords}`)
+}

@@ -1,14 +1,16 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { useDispatch, TypedUseSelectorHook, useSelector, shallowEqual } from 'react-redux'
-import recommendReducer from './modules/recommend'
+import recommendReducer from '@/store/modules/recommend'
+import playerReducer from '@/store/modules/player'
 
 const store = configureStore({
   reducer: {
-    recommend: recommendReducer
+    recommend: recommendReducer,
+    player: playerReducer
   }
 })
 
-type RootState = ReturnType<typeof store.getState>
+export type RootState = ReturnType<typeof store.getState>
 type AppDispatch = typeof store.dispatch
 
 export const useAppDispatch: () => AppDispatch = useDispatch

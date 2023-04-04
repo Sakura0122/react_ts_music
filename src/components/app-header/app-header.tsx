@@ -3,8 +3,7 @@ import type { FC, ReactNode } from 'react'
 import { HeaderLeft, HeaderRight, HeaderWrapper } from '@/components/app-header/style'
 import headerTitles from '@/assets/data/header_titles.json'
 import { NavLink } from 'react-router-dom'
-import { SearchOutlined } from '@ant-design/icons'
-import { Input } from 'antd'
+import Search from './components/search/search'
 
 interface IProps {
   children?: ReactNode
@@ -47,7 +46,7 @@ const AppFooter: FC<IProps> = () => {
           </div>
         </HeaderLeft>
         <HeaderRight>
-          <Input className="search" placeholder="音乐/视频/电台/用户" prefix={<SearchOutlined />} />
+          <Search />
           <span className="center">创作者中心</span>
           <span className="login">登录</span>
         </HeaderRight>
